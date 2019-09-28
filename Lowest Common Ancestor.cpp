@@ -1,6 +1,8 @@
 // Lowest Common Ancestor (using binary lifting)
 // O(log(height of tree))
 
+// solution to: SPOJ LCA
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -47,4 +49,35 @@ namespace lca {
         timer = 0;
         dfs(root, root);
     }
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t, cc = 1; cin >> t;
+    while (t--) {
+        cout << "Case " << cc++ << ":" << endl;
+
+        int n;
+        cin >> n;
+        lca::adj.assign(n+1, vector<int>{});
+        lca::n = n+1;
+        for (int i = 1; i <= n; i++) {
+            int m; cin >> m;
+            for (int j = 0; j < m; j++) {
+                int x; cin >> x;
+                lca::adj[i].push_back(x);
+            }
+        }
+
+        lca::preprocess(1);
+
+        int q; cin >> q;
+        for (int i = 0; i < q; i++) {
+            int x, y; cin >> x >> y;
+            cout << lca::lca(x, y) << endl;
+        }
+    }
+    return 0;
 }
