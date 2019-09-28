@@ -1,3 +1,6 @@
+// Binary Search (lower_bound, upper_bound, reverse lower_bound)
+// O(logn)
+
 #include <stdio.h>
 
 // returns the position of the 1st element in the list to evaluate greater than v (> v)

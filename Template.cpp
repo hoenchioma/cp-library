@@ -12,9 +12,12 @@ typedef unsigned long long ull;
 typedef long long ll;
 typedef long double ld;
 typedef pair<int, int> pii;
-typedef pair<int, ll> pil;
 typedef pair<ll, ll> pll;
-typedef pair<char, int> pci; 
+typedef pair<int, ll> pil;
+typedef pair<ll, int> pli;
+typedef pair<char, int> pci;
+typedef __int128 int128_t;
+typedef unsigned __int128 uint128_t;
 
 #define ff          first
 #define ss          second
@@ -32,6 +35,22 @@ typedef pair<char, int> pci;
 // using namespace __gnu_pbds;
 // template <class T, class cmp = less<T> >
 // using ordered_set = tree<T, null_type, cmp, rb_tree_tag, tree_order_statistics_node_update>;
+
+// fast I/O
+template <typename T>
+void fastscan(T& x) {
+    x = 0;
+    int neg = false, c;
+    do c = getchar(); while (c == ' ' || c == '\n');
+    if (c == '-') neg = true, c = getchar();
+    for(; c >= '0' && c <= '9'; c = getchar()) x = (x<<1) + (x<<3) + c - '0';
+    if (neg) x *= -1;
+}
+template <typename T, typename... Args>
+void fastscan(T& x, Args&... args) {
+    fastscan(x);
+    fastscan(args...);
+}
 
 // debugging
 #ifndef ONLINE_JUDGE
@@ -54,13 +73,16 @@ const int MOD = 1e9 + 7;
 const double PI = acos(-1.0);
 const ll INF = INT_MAX-1;
 
-int main() 
-{
-    int t;
-    scanf("%d", &t);
-    for (int i = 0; i < t; i++) {
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
 
-        //printf("Case %d: %d\n",i+1,);
+    int t, cc = 1;
+    cin >> t;
+
+    while (t--) {
+        cout << "Case " << cc++ << ":" << endl;
     }
     
     return 0;
