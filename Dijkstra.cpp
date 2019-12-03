@@ -28,7 +28,11 @@ void dijkstra(int s, int n) {
 
     while (!pq.empty()) {
         int u = pq.top().ss;
+        ll du = pq.top().ff;
         pq.pop();
+
+        if (du != dis[u]) continue;
+
         for (pil p: adj[u]) {
             int v = p.ff; 
             ll w = p.ss;
