@@ -31,7 +31,7 @@ void dijkstra(int s, int n) {
         ll du = pq.top().ff;
         pq.pop();
 
-        if (du != dis[u]) continue;
+        if (du != dis[u]) continue; // check if it is an old entry
 
         for (pil p: adj[u]) {
             int v = p.ff; 
