@@ -85,44 +85,44 @@ vector<int> solve(int n) {
 }
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
+  ios_base::sync_with_stdio(false);
+  cin.tie(nullptr);
 
-    int n;
-    string line, temp;
-    while (cin >> n, cin.ignore(), n != 0) {
-    	for (int i = 0; i < n; i++) {
-    		graph[i].clear();
-    		tgraph[i].clear();
-    		dict[i].clear();
-    	}
-    	ind.clear();
+  int n;
+  string line, temp;
+  while (cin >> n, cin.ignore(), n != 0) {
+  	for (int i = 0; i < n; i++) {
+  		graph[i].clear();
+  		tgraph[i].clear();
+  		dict[i].clear();
+  	}
+  	ind.clear();
 
-    	for (int i = 0; i < n; i++) {
-	    	getline(cin, line);
-	    	stringstream ss(line);
+  	for (int i = 0; i < n; i++) {
+	  	getline(cin, line);
+	  	stringstream ss(line);
 
-	    	ss >> word[i];
-	    	ind[word[i]] = i;
+	  	ss >> word[i];
+	  	ind[word[i]] = i;
 
-	    	while (ss >> temp) {
-	    		dict[i].insert(temp);
-	    	}
-    	}
-    	for (int i = 0; i < n; i++) {
-    		for (const string& j: dict[i]) {
-    			graph[i].push_back(ind[j]);
-    			tgraph[ind[j]].push_back(i);
-    		}
-    	}
+	  	while (ss >> temp) {
+	  		dict[i].insert(temp);
+	  	}
+  	}
+  	for (int i = 0; i < n; i++) {
+  		for (const string& j: dict[i]) {
+  			graph[i].push_back(ind[j]);
+  			tgraph[ind[j]].push_back(i);
+  		}
+  	}
 
-    	auto ans = solve(n);
+  	auto ans = solve(n);
 
-    	cout << ans.size() << endl;
-    	for (int i = 0; i < (int)ans.size(); i++) {
-    		cout << word[ans[i]] << " \n"[i == (int)ans.size()-1];
-    	}
-    }
-    
-    return 0;
+  	cout << ans.size() << endl;
+  	for (int i = 0; i < (int)ans.size(); i++) {
+  		cout << word[ans[i]] << " \n"[i == (int)ans.size()-1];
+  	}
+  }
+  
+  return 0;
 }
