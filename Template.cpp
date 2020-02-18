@@ -6,9 +6,12 @@ using namespace std;
 // auto clockStart = high_resolution_clock::now();
 // auto timer() {return duration_cast<milliseconds>(high_resolution_clock::now() - clockStart);}
 
-typedef unsigned long long ull;
 typedef long long ll;
+typedef unsigned long long ull;
 typedef long double ld;
+// typedef __int128 int128_t;
+// typedef unsigned __int128 uint128_t;
+
 typedef pair<int, int> pii;
 typedef pair<ll, ll> pll;
 typedef pair<int, ll> pil;
@@ -16,8 +19,11 @@ typedef pair<ll, int> pli;
 typedef pair<char, int> pci;
 typedef tuple<int, int, int> ti3;
 typedef tuple<ll, ll, ll> tl3;
-typedef __int128 int128_t;
-typedef unsigned __int128 uint128_t;
+
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vl;
+typedef vector<vl> vvl;
 
 #define ff          first
 #define ss          second
@@ -28,7 +34,7 @@ typedef unsigned __int128 uint128_t;
 #define ppf()       pop_front()
 #define mp(x,y)     make_pair(x, y)
 #define mk(args...) make_tuple(args...)
-#define full(v)     begin(v),end(v)
+#define all(v)     begin(v),end(v)
 #define gcd(x, y)   __gcd(x, y)
 
 // pbds and ordered set
@@ -38,28 +44,13 @@ typedef unsigned __int128 uint128_t;
 // template <class T, class cmp = less<T> >
 // using ordered_set = tree<T, null_type, cmp, rb_tree_tag, tree_order_statistics_node_update>;
 
-// fast I/O (for int, long and long long)
-template <typename T>
-bool fastscan(T& x) {
-  x = 0; int neg = false, c;
-  do c = getchar(); while (c == ' ' || c == '\n');
-  if (c == EOF) return false;
-  if (c == '-') neg = true, c = getchar();
-  for(; c >= '0' && c <= '9'; c = getchar()) x = (x<<1) + (x<<3) + c - '0';
-  if (neg) x *= -1;
-  return true;
-}
-template <typename T, typename... Args>
-bool fastscan(T& x, Args&... args) {
-  return fastscan(x) && fastscan(args...);
-}
-
+// for fast I/O
 #define endl '\n'
 #define FASTIO() ios_base::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 
 #ifndef ONLINE_JUDGE
 // debugging
-  #define WATCH(args...) { string _s = #args; replace(full(_s),',',' '); stringstream _ss(_s); cerr<<"[ "; _debug(istream_iterator<string>(_ss),args); }
+  #define WATCH(args...) { string _s = #args; replace(all(_s),',',' '); stringstream _ss(_s); cerr<<"[ "; _debug(istream_iterator<string>(_ss),args); }
   template <class T>
   void _debug(istream_iterator<string> it, T a) { cerr<<*it<<" = "<<a<<" ]"<<endl; }
   template <class T, class... Args>
@@ -87,6 +78,8 @@ const ll INF = INT_MAX-1;
 
 int main() {
   FASTIO();
+
+  
   
   return 0;
 }
